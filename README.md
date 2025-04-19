@@ -1,8 +1,8 @@
 # KitchenMate
 
 Gruppenmitglieder: 
-Ngo Tuyet Huong Claudia Dinh 
-Pia Hirsch
+- Ngo Tuyet Huong Claudia Dinh 
+- Pia Hirsch
 
 KitchenMate-Rezeptmanager
 
