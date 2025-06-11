@@ -1,9 +1,14 @@
 package com.example.demo;
 
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name= "recipes")
 public class Recipe {
+   
+   
     private String name;
     private String description;
     List<Integer> ingredients = new ArrayList<>();
