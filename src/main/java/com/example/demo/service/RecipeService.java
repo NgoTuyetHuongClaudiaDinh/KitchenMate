@@ -1,27 +1,31 @@
 package com.example.demo.service;
 
-import com.example.demo.Recipe;
-import com.example.demo.repository.RecipeRepository;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.example.demo.Recipe;
+import com.example.demo.repository.RecipeRepository;
 
 @Service
 public class RecipeService {
 
-    private final RecipeRepository repository;
+    @Autowired
+    RecipeRepository repository;
 
     public RecipeService(RecipeRepository repository) {
         this.repository = repository;
     }
 
     public List<Recipe> getAll() {
-        return repository.findAll();
+        List<Recipe> recipes = new java.util.ArrayList<>();
+        repository.findAll().forEach(recipes::add);
+        return recipes;
     }
 
-    public Optional<Recipe> getById(Long id) {
-        return repository.findById(id);
+    public Recipe get(Long id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
     public Recipe save(Recipe recipe) {
